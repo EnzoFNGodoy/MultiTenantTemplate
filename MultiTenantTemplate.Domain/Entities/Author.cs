@@ -4,6 +4,7 @@ namespace MultiTenantTemplate.Domain.Entities;
 
 public sealed class Author : Entity
 {
+    public Guid CompanyId { get; set; }
     public string Name { get; set; } = string.Empty;
     public DateTime Birthday { get; set; }
     public int Age => GetAge();

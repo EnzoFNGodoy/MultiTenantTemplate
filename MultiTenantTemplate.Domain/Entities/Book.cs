@@ -4,6 +4,7 @@ namespace MultiTenantTemplate.Domain.Entities;
 
 public sealed class Book : Entity
 {
+    public Guid CompanyId { get; set; }
     public Guid AuthorId  { get; set; }
     public string Name { get; set; } = string.Empty;
     public string Description { get; set; } = string.Empty;

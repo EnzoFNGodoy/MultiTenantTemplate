@@ -25,6 +25,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.1 - Data", "4.1 - Data", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.2 - CrossCutting", "4.2 - CrossCutting", "{ABE11E1D-AE8C-4A2D-A0EE-F141920786B7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiTenant.Infra.CrossCutting.Auth", "MultiTenant.Infra.CrossCutting.Auth\MultiTenant.Infra.CrossCutting.Auth.csproj", "{6CDD6EEA-BE19-47BA-94D3-A3F0D8219634}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{F07393AE-D0EF-4521-95E8-A5C939CF1221}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F07393AE-D0EF-4521-95E8-A5C939CF1221}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F07393AE-D0EF-4521-95E8-A5C939CF1221}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CDD6EEA-BE19-47BA-94D3-A3F0D8219634}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CDD6EEA-BE19-47BA-94D3-A3F0D8219634}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CDD6EEA-BE19-47BA-94D3-A3F0D8219634}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CDD6EEA-BE19-47BA-94D3-A3F0D8219634}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -63,6 +69,7 @@ Global
 		{F07393AE-D0EF-4521-95E8-A5C939CF1221} = {ABE11E1D-AE8C-4A2D-A0EE-F141920786B7}
 		{ADA549A5-9C81-4367-8098-10784E09E136} = {345A72EC-02F2-42DA-B7E3-684E53B87FC9}
 		{ABE11E1D-AE8C-4A2D-A0EE-F141920786B7} = {345A72EC-02F2-42DA-B7E3-684E53B87FC9}
+		{6CDD6EEA-BE19-47BA-94D3-A3F0D8219634} = {ABE11E1D-AE8C-4A2D-A0EE-F141920786B7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {960972E8-12FC-48E3-A2B7-A72CB0A140DC}

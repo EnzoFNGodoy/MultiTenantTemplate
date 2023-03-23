@@ -12,9 +12,9 @@ public class BaseServices<TEntity, TRepository, TRequest, TResponse>
     where TRequest : RequestViewModel
     where TResponse : ResponseViewModel
 {
-    private readonly TRepository _repository;
-    private readonly IUnitOfWork _unitOfWork;
-    private readonly IMapper _mapper;
+    protected readonly TRepository _repository;
+    protected readonly IUnitOfWork _unitOfWork;
+    protected readonly IMapper _mapper;
 
     public BaseServices(
         TRepository repository,

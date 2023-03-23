@@ -1,6 +1,8 @@
-using EasyDocs.WebApi.Configurations.Swagger;
 using Microsoft.AspNetCore.OData;
+using MultiTenantTemplate.Infra.Data.Context;
 using MultTenantTemplate.WebApi.Configurations;
+using MultTenantTemplate.WebApi.Configurations.Swagger;
+using System.Diagnostics;
 using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -19,7 +21,7 @@ builder.Services.AddControllers()
 builder.Services.AddEndpointsApiExplorer();
 
 // Configuring SqlServer Database
-builder.Services.AddDatabaseConfiguration(builder.Configuration);
+builder.Services.AddDbContext<LibraryContext>();
 
 // Implementing IoC
 builder.Services.AddDependencyInjectionConfiguration();
@@ -29,6 +31,9 @@ builder.Services.AddSwaggerConfiguration();
 
 // Configuring AutoMapper
 builder.Services.AddAutoMapperConfiguration();
+
+// Configuring JWT
+builder.Services.AddJwtConfiguration();
 
 var app = builder.Build();
 
