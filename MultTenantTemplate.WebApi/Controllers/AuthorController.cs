@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MultiTenantTemplate.Application.Interfaces;
 using MultiTenantTemplate.Application.ViewModels.Authors;
 using System.Web.Http.OData;
 
 namespace MultTenantTemplate.WebApi.Controllers;
 
+[Authorize]
 [Route("authors")]
 public sealed class AuthorController : ControllerBase
 {
@@ -25,11 +27,11 @@ public sealed class AuthorController : ControllerBase
         => await _authorServices.GetById(id);
 
     [HttpPost]
-    public async Task<IActionResult> Post(RequestAuthorViewModel viewModel)
+    public async Task<IActionResult> Post([FromBody] RequestAuthorViewModel viewModel)
         => Ok(await _authorServices.Create(viewModel));
 
     [HttpPut("{id}")]
-    public async Task<IActionResult> Update(Guid id, RequestAuthorViewModel viewModel)
+    public async Task<IActionResult> Update(Guid id, [FromBody] RequestAuthorViewModel viewModel)
        => Ok(await _authorServices.Update(id, viewModel));
 
     [HttpDelete("{id}")]

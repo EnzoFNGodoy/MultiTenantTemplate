@@ -13,6 +13,7 @@ public sealed class ViewModelToDomainProfile : Profile
     public ViewModelToDomainProfile()
     {
         CreateMap<RequestUserViewModel, User>();
+        CreateMap<RequestUserLoginViewModel, User>();
         CreateMap<RequestAuthorViewModel, Author>();
         CreateMap<RequestBookViewModel, Book>();
         CreateMap<RequestCategoryViewModel, Category>();

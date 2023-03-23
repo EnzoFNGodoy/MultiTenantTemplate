@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MultiTenantTemplate.Application.Interfaces;
 using MultiTenantTemplate.Application.ViewModels.Books;
 using System.Web.Http.OData;
 
 namespace MultTenantTemplate.WebApi.Controllers;
 
+[Authorize]
 [Route("books")]
 public sealed class BookController : ControllerBase
 {
@@ -25,11 +27,11 @@ public sealed class BookController : ControllerBase
         => await _bookServices.GetById(id);
 
     [HttpPost]
-    public async Task<IActionResult> Post(RequestBookViewModel viewModel)
+    public async Task<IActionResult> Post([FromBody] RequestBookViewModel viewModel)
         => Ok(await _bookServices.Create(viewModel));
 
     [HttpPut("{id}")]
-    public async Task<IActionResult> Update(Guid id, RequestBookViewModel viewModel)
+    public async Task<IActionResult> Update(Guid id, [FromBody] RequestBookViewModel viewModel)
        => Ok(await _bookServices.Update(id, viewModel));
 
     [HttpDelete("{id}")]

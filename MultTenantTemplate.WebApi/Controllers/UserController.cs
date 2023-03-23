@@ -1,15 +1,14 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OData.Query;
-using Microsoft.EntityFrameworkCore;
 using MultiTenantTemplate.Application.Interfaces;
 using MultiTenantTemplate.Application.ViewModels.Users;
-using MultiTenantTemplate.Domain.Entities;
 
 namespace MultTenantTemplate.WebApi.Controllers;
 
+[Authorize]
 [Route("users")]
-public class UserController : ControllerBase
+public sealed class UserController : ControllerBase
 {
     private readonly IUserServices _userServices;
 
@@ -27,12 +26,8 @@ public class UserController : ControllerBase
     public async Task<ResponseUserViewModel> GetById(Guid id)
         => await _userServices.GetById(id);
 
-    [HttpPost("auth")]
-    public async Task<IActionResult> Login(RequestUserLoginViewModel viewModel)
-        => Ok(await _userServices.Login(viewModel));
-
     [HttpPost]
-    public async Task<IActionResult> Post(RequestUserViewModel viewModel)
+    public async Task<IActionResult> Post([FromBody] RequestUserViewModel viewModel)
     {
         var response = await _userServices.Create(viewModel);
 
@@ -40,7 +35,7 @@ public class UserController : ControllerBase
     }
 
     [HttpPut("{id}")]
-    public async Task<IActionResult> Update(Guid id, RequestUserViewModel viewModel)
+    public async Task<IActionResult> Update(Guid id, [FromBody] RequestUserViewModel viewModel)
        => Ok(await _userServices.Update(id, viewModel));
 
     [HttpDelete("{id}")]

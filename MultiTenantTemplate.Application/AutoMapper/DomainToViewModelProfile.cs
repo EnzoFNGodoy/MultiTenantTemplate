@@ -12,6 +12,7 @@ public sealed class DomainToViewModelProfile : Profile
 {
     public DomainToViewModelProfile()
     {
+        CreateMap<User, ResponseUserLoginViewModel>();
         CreateMap<User, ResponseUserViewModel>();
         CreateMap<Author, ResponseAuthorViewModel>();
         CreateMap<Book, ResponseBookViewModel>();

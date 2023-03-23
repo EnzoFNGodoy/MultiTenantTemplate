@@ -14,7 +14,7 @@ public static class NativeInjector
 {
     public static void RegisterServices(this IServiceCollection services)
     {
-        services.AddScoped<IHttpContextAccessor, HttpContextAccessor>();
+        services.AddTransient<IHttpContextAccessor, HttpContextAccessor>();
 
         services.AddScoped<LibraryContext>();
 

@@ -64,6 +64,8 @@ public sealed class LibraryContext : DbContext
         {
             var company = _httpContextAccessor.HttpContext.User.CompanyId();
 
+            if (company == Guid.Empty) return;
+
             modelBuilder.Entity<User>()
                         .HasQueryFilter(x => EF.Property<Guid>(x, "CompanyId") == company);
             modelBuilder.Entity<Author>()
